@@ -13,7 +13,7 @@
         select * from user where id = #{id}
     </select>
 
-    <!--<insert id="insert" parameterType="com.example.entity.User">
+    <insert id="insert" parameterType="com.example.entity.User">
         insert into User (userId, userName, phone,
         sex)
         values (#{userid,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR},
@@ -54,5 +54,5 @@
 
     <select id="findAllUser" resultType="com.example.entity.User">
         select * from User
-    </select>-->
+    </select>
 </mapper>
