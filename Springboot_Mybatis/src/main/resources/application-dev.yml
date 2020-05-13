@@ -18,3 +18,10 @@ logging:
     com:
       example:
         mapper : debug
+
+# 配置pagehelper参数
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql

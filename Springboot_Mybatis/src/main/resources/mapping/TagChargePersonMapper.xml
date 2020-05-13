@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.TagChargePersonMapper">
+  <resultMap id="BaseResultMap" type="com.example.entity.TagChargePerson">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="charge_id" jdbcType="VARCHAR" property="chargeId" />
+    <result column="charge_name" jdbcType="VARCHAR" property="chargeName" />
+    <result column="tag_id" jdbcType="BIGINT" property="tagId" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from tag_charge_person
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.example.entity.TagChargePerson">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into tag_charge_person (charge_id, charge_name, tag_id
+      )
+    values (#{chargeId,jdbcType=VARCHAR}, #{chargeName,jdbcType=VARCHAR}, #{tagId,jdbcType=BIGINT}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.example.entity.TagChargePerson">
+    update tag_charge_person
+    set charge_id = #{chargeId,jdbcType=VARCHAR},
+      charge_name = #{chargeName,jdbcType=VARCHAR},
+      tag_id = #{tagId,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select id, charge_id, charge_name, tag_id
+    from tag_charge_person
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, charge_id, charge_name, tag_id
+    from tag_charge_person
+  </select>
+</mapper>

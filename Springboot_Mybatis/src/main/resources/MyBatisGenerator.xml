@@ -38,22 +38,22 @@
         </javaTypeResolver>
 
         <!--生成Model类存放位置-->
-        <javaModelGenerator targetPackage="com.example.springboot.entity" targetProject="src/main/java">
+        <javaModelGenerator targetPackage="com.example.entity" targetProject="src/main/java">
             <property name="enableSubPackages" value="true"/>
             <property name="trimStrings" value="true"/>
         </javaModelGenerator>
 
         <!-- 生成mapxml文件 -->
-        <sqlMapGenerator targetPackage="mapper" targetProject="src/main/resources/mybatis" >
+        <sqlMapGenerator targetPackage="mapper" targetProject="src/main/resources" >
             <property name="enableSubPackages" value="false" />
         </sqlMapGenerator>
 
         <!-- 生成mapxml对应client，也就是接口dao -->
-        <javaClientGenerator targetPackage="com.example.springboot.dao" targetProject="src/main/java" type="XMLMAPPER" >
+        <javaClientGenerator targetPackage="com.example.mapper" targetProject="src/main/java" type="XMLMAPPER" >
             <property name="enableSubPackages" value="false" />
         </javaClientGenerator>
 
-        <table tableName="tag_base_info" enableCountByExample="true" enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true">
+        <table tableName="tag_charge_person" enableCountByExample="true" enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true">
             <generatedKey column="id" sqlStatement="Mysql" identity="true" />
         </table>
 

@@ -17,7 +17,9 @@ public interface TagBaseInfoMapper {
 
     int updateByPrimaryKey(TagBaseInfo record);
 
+    //动态sql
     List<TagBaseInfo> selectByCondition(TagCondition tagCondition);
 
-    //todo 分页查询
+    //todo 关联查询
+    List<TagBaseInfo> selectBy();
 }

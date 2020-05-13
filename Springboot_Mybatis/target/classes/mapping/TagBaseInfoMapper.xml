@@ -1,187 +1,273 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.mapper.TagBaseInfoMapper">
-  <resultMap id="BaseResultMap" type="com.example.entity.TagBaseInfo">
-    <id column="id" jdbcType="BIGINT" property="id" />
-    <result column="available" jdbcType="INTEGER" property="available" />
-    <result column="create_department" jdbcType="VARCHAR" property="createDepartment" />
-    <result column="create_department_id" jdbcType="VARCHAR" property="createDepartmentId" />
-    <result column="create_name" jdbcType="VARCHAR" property="createName" />
-    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
-    <result column="create_uid" jdbcType="VARCHAR" property="createUid" />
-    <result column="data_init_date" jdbcType="TIMESTAMP" property="dataInitDate" />
-    <result column="delete_time" jdbcType="TIMESTAMP" property="deleteTime" />
-    <result column="delete_uid" jdbcType="VARCHAR" property="deleteUid" />
-    <result column="first_id" jdbcType="BIGINT" property="firstId" />
-    <result column="is_date_partition" jdbcType="INTEGER" property="isDatePartition" />
-    <result column="is_multi_value" jdbcType="INTEGER" property="isMultiValue" />
-    <result column="method_type" jdbcType="INTEGER" property="methodType" />
-    <result column="offline_reason" jdbcType="VARCHAR" property="offlineReason" />
-    <result column="offline_time" jdbcType="TIMESTAMP" property="offlineTime" />
-    <result column="offline_uid" jdbcType="VARCHAR" property="offlineUid" />
-    <result column="online_state" jdbcType="INTEGER" property="onlineState" />
-    <result column="online_time" jdbcType="TIMESTAMP" property="onlineTime" />
-    <result column="online_uid" jdbcType="VARCHAR" property="onlineUid" />
-    <result column="precis_rate" jdbcType="REAL" property="precisRate" />
-    <result column="prikey_type" jdbcType="INTEGER" property="prikeyType" />
-    <result column="recall_rate" jdbcType="REAL" property="recallRate" />
-    <result column="second_id" jdbcType="BIGINT" property="secondId" />
-    <result column="tag_count" jdbcType="INTEGER" property="tagCount" />
-    <result column="tag_en_name" jdbcType="VARCHAR" property="tagEnName" />
-    <result column="tag_field_type" jdbcType="INTEGER" property="tagFieldType" />
-    <result column="tag_name" jdbcType="VARCHAR" property="tagName" />
-    <result column="tag_type" jdbcType="INTEGER" property="tagType" />
-    <result column="update_cycle" jdbcType="INTEGER" property="updateCycle" />
-    <result column="update_priority" jdbcType="INTEGER" property="updatePriority" />
-    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
-    <result column="update_uid" jdbcType="VARCHAR" property="updateUid" />
-    <result column="uri" jdbcType="VARCHAR" property="uri" />
-    <result column="is_increment" jdbcType="INTEGER" property="isIncrement" />
-    <result column="tag_value_is_enum" jdbcType="INTEGER" property="tagValueIsEnum" />
-    <result column="end_time" jdbcType="TIMESTAMP" property="endTime" />
-    <result column="tag_import_type" jdbcType="INTEGER" property="tagImportType" />
-    <result column="security_level" jdbcType="INTEGER" property="securityLevel" />
-    <result column="delet_reason" jdbcType="VARCHAR" property="deletReason" />
-    <result column="tag_weight" jdbcType="INTEGER" property="tagWeight" />
-    <result column="test_tag" jdbcType="INTEGER" property="testTag" />
-    <result column="external_task_id" jdbcType="INTEGER" property="externalTaskId" />
-    <result column="alarm" jdbcType="VARCHAR" property="alarm" />
-    <result column="brand" jdbcType="VARCHAR" property="brand" />
-    <result column="file_info_id" jdbcType="INTEGER" property="fileInfoId" />
-    <result column="primary_key_type" jdbcType="INTEGER" property="primaryKeyType" />
-    <result column="update_cycle_time" jdbcType="INTEGER" property="updateCycleTime" />
-    <result column="business_requirements" jdbcType="VARCHAR" property="businessRequirements" />
-    <result column="tag_en_name_text" jdbcType="VARCHAR" property="tagEnNameText" />
-    <result column="review_fail_reason" jdbcType="VARCHAR" property="reviewFailReason" />
-    <result column="review_state" jdbcType="INTEGER" property="reviewState" />
-    <result column="expected_performance_time" jdbcType="VARCHAR" property="expectedPerformanceTime" />
-    <result column="tag_desc" jdbcType="LONGVARCHAR" property="tagDesc" />
-  </resultMap>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
-    delete from tag_base_info
-    where id = #{id,jdbcType=BIGINT}
-  </delete>
-  <insert id="insert" parameterType="com.example.entity.TagBaseInfo">
-    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
-      SELECT LAST_INSERT_ID()
-    </selectKey>
-    insert into tag_base_info (available, create_department, create_department_id, 
-      create_name, create_time, create_uid, 
-      data_init_date, delete_time, delete_uid, 
-      first_id, is_date_partition, is_multi_value, 
-      method_type, offline_reason, offline_time, 
-      offline_uid, online_state, online_time, 
-      online_uid, precis_rate, prikey_type, 
-      recall_rate, second_id, tag_count, 
-      tag_en_name, tag_field_type, tag_name, 
-      tag_type, update_cycle, update_priority, 
-      update_time, update_uid, uri, 
-      is_increment, tag_value_is_enum, end_time, 
-      tag_import_type, security_level, delet_reason, 
-      tag_weight, test_tag, external_task_id, 
-      alarm, brand, file_info_id, 
-      primary_key_type, update_cycle_time, business_requirements, 
-      tag_en_name_text, review_fail_reason, review_state, 
-      expected_performance_time, tag_desc)
-    values (#{available,jdbcType=INTEGER}, #{createDepartment,jdbcType=VARCHAR}, #{createDepartmentId,jdbcType=VARCHAR}, 
-      #{createName,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{createUid,jdbcType=VARCHAR}, 
-      #{dataInitDate,jdbcType=TIMESTAMP}, #{deleteTime,jdbcType=TIMESTAMP}, #{deleteUid,jdbcType=VARCHAR}, 
-      #{firstId,jdbcType=BIGINT}, #{isDatePartition,jdbcType=INTEGER}, #{isMultiValue,jdbcType=INTEGER}, 
-      #{methodType,jdbcType=INTEGER}, #{offlineReason,jdbcType=VARCHAR}, #{offlineTime,jdbcType=TIMESTAMP}, 
-      #{offlineUid,jdbcType=VARCHAR}, #{onlineState,jdbcType=INTEGER}, #{onlineTime,jdbcType=TIMESTAMP}, 
-      #{onlineUid,jdbcType=VARCHAR}, #{precisRate,jdbcType=REAL}, #{prikeyType,jdbcType=INTEGER}, 
-      #{recallRate,jdbcType=REAL}, #{secondId,jdbcType=BIGINT}, #{tagCount,jdbcType=INTEGER}, 
-      #{tagEnName,jdbcType=VARCHAR}, #{tagFieldType,jdbcType=INTEGER}, #{tagName,jdbcType=VARCHAR}, 
-      #{tagType,jdbcType=INTEGER}, #{updateCycle,jdbcType=INTEGER}, #{updatePriority,jdbcType=INTEGER}, 
-      #{updateTime,jdbcType=TIMESTAMP}, #{updateUid,jdbcType=VARCHAR}, #{uri,jdbcType=VARCHAR}, 
-      #{isIncrement,jdbcType=INTEGER}, #{tagValueIsEnum,jdbcType=INTEGER}, #{endTime,jdbcType=TIMESTAMP}, 
-      #{tagImportType,jdbcType=INTEGER}, #{securityLevel,jdbcType=INTEGER}, #{deletReason,jdbcType=VARCHAR}, 
-      #{tagWeight,jdbcType=INTEGER}, #{testTag,jdbcType=INTEGER}, #{externalTaskId,jdbcType=INTEGER}, 
-      #{alarm,jdbcType=VARCHAR}, #{brand,jdbcType=VARCHAR}, #{fileInfoId,jdbcType=INTEGER}, 
-      #{primaryKeyType,jdbcType=INTEGER}, #{updateCycleTime,jdbcType=INTEGER}, #{businessRequirements,jdbcType=VARCHAR}, 
-      #{tagEnNameText,jdbcType=VARCHAR}, #{reviewFailReason,jdbcType=VARCHAR}, #{reviewState,jdbcType=INTEGER}, 
-      #{expectedPerformanceTime,jdbcType=VARCHAR}, #{tagDesc,jdbcType=LONGVARCHAR})
-  </insert>
-  <update id="updateByPrimaryKey" parameterType="com.example.entity.TagBaseInfo">
-    update tag_base_info
-    set available = #{available,jdbcType=INTEGER},
-      create_department = #{createDepartment,jdbcType=VARCHAR},
-      create_department_id = #{createDepartmentId,jdbcType=VARCHAR},
-      create_name = #{createName,jdbcType=VARCHAR},
-      create_time = #{createTime,jdbcType=TIMESTAMP},
-      create_uid = #{createUid,jdbcType=VARCHAR},
-      data_init_date = #{dataInitDate,jdbcType=TIMESTAMP},
-      delete_time = #{deleteTime,jdbcType=TIMESTAMP},
-      delete_uid = #{deleteUid,jdbcType=VARCHAR},
-      first_id = #{firstId,jdbcType=BIGINT},
-      is_date_partition = #{isDatePartition,jdbcType=INTEGER},
-      is_multi_value = #{isMultiValue,jdbcType=INTEGER},
-      method_type = #{methodType,jdbcType=INTEGER},
-      offline_reason = #{offlineReason,jdbcType=VARCHAR},
-      offline_time = #{offlineTime,jdbcType=TIMESTAMP},
-      offline_uid = #{offlineUid,jdbcType=VARCHAR},
-      online_state = #{onlineState,jdbcType=INTEGER},
-      online_time = #{onlineTime,jdbcType=TIMESTAMP},
-      online_uid = #{onlineUid,jdbcType=VARCHAR},
-      precis_rate = #{precisRate,jdbcType=REAL},
-      prikey_type = #{prikeyType,jdbcType=INTEGER},
-      recall_rate = #{recallRate,jdbcType=REAL},
-      second_id = #{secondId,jdbcType=BIGINT},
-      tag_count = #{tagCount,jdbcType=INTEGER},
-      tag_en_name = #{tagEnName,jdbcType=VARCHAR},
-      tag_field_type = #{tagFieldType,jdbcType=INTEGER},
-      tag_name = #{tagName,jdbcType=VARCHAR},
-      tag_type = #{tagType,jdbcType=INTEGER},
-      update_cycle = #{updateCycle,jdbcType=INTEGER},
-      update_priority = #{updatePriority,jdbcType=INTEGER},
-      update_time = #{updateTime,jdbcType=TIMESTAMP},
-      update_uid = #{updateUid,jdbcType=VARCHAR},
-      uri = #{uri,jdbcType=VARCHAR},
-      is_increment = #{isIncrement,jdbcType=INTEGER},
-      tag_value_is_enum = #{tagValueIsEnum,jdbcType=INTEGER},
-      end_time = #{endTime,jdbcType=TIMESTAMP},
-      tag_import_type = #{tagImportType,jdbcType=INTEGER},
-      security_level = #{securityLevel,jdbcType=INTEGER},
-      delet_reason = #{deletReason,jdbcType=VARCHAR},
-      tag_weight = #{tagWeight,jdbcType=INTEGER},
-      test_tag = #{testTag,jdbcType=INTEGER},
-      external_task_id = #{externalTaskId,jdbcType=INTEGER},
-      alarm = #{alarm,jdbcType=VARCHAR},
-      brand = #{brand,jdbcType=VARCHAR},
-      file_info_id = #{fileInfoId,jdbcType=INTEGER},
-      primary_key_type = #{primaryKeyType,jdbcType=INTEGER},
-      update_cycle_time = #{updateCycleTime,jdbcType=INTEGER},
-      business_requirements = #{businessRequirements,jdbcType=VARCHAR},
-      tag_en_name_text = #{tagEnNameText,jdbcType=VARCHAR},
-      review_fail_reason = #{reviewFailReason,jdbcType=VARCHAR},
-      review_state = #{reviewState,jdbcType=INTEGER},
-      expected_performance_time = #{expectedPerformanceTime,jdbcType=VARCHAR},
-      tag_desc = #{tagDesc,jdbcType=LONGVARCHAR}
-    where id = #{id,jdbcType=BIGINT}
-  </update>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
-    select id, available, create_department, create_department_id, create_name, create_time, 
-    create_uid, data_init_date, delete_time, delete_uid, first_id, is_date_partition, 
-    is_multi_value, method_type, offline_reason, offline_time, offline_uid, online_state, 
-    online_time, online_uid, precis_rate, prikey_type, recall_rate, second_id, tag_count, 
-    tag_en_name, tag_field_type, tag_name, tag_type, update_cycle, update_priority, update_time, 
-    update_uid, uri, is_increment, tag_value_is_enum, end_time, tag_import_type, security_level, 
-    delet_reason, tag_weight, test_tag, external_task_id, alarm, brand, file_info_id, 
-    primary_key_type, update_cycle_time, business_requirements, tag_en_name_text, review_fail_reason, 
-    review_state, expected_performance_time, tag_desc
-    from tag_base_info
-    where id = #{id,jdbcType=BIGINT}
-  </select>
-  <select id="selectAll" resultMap="BaseResultMap">
-    select id, available, create_department, create_department_id, create_name, create_time, 
-    create_uid, data_init_date, delete_time, delete_uid, first_id, is_date_partition, 
-    is_multi_value, method_type, offline_reason, offline_time, offline_uid, online_state, 
-    online_time, online_uid, precis_rate, prikey_type, recall_rate, second_id, tag_count, 
-    tag_en_name, tag_field_type, tag_name, tag_type, update_cycle, update_priority, update_time, 
-    update_uid, uri, is_increment, tag_value_is_enum, end_time, tag_import_type, security_level, 
-    delet_reason, tag_weight, test_tag, external_task_id, alarm, brand, file_info_id, 
-    primary_key_type, update_cycle_time, business_requirements, tag_en_name_text, review_fail_reason, 
-    review_state, expected_performance_time, tag_desc
-    from tag_base_info
-  </select>
+
+    <!--  缓存：
+        映射语句文件中的所有 select 语句的结果将会被缓存。
+        映射语句文件中的所有 insert、update 和 delete 语句会刷新缓存。
+        缓存会使用最近最少使用算法（LRU, Least Recently Used）算法来清除不需要的缓存。
+        缓存不会定时进行刷新（也就是说，没有刷新间隔）。
+        缓存会保存列表或对象（无论查询方法返回哪种）的 1024 个引用。
+        缓存会被视为读/写缓存，这意味着获取到的对象并不是共享的，可以安全地被调用者修改，而不干扰其他调用者或线程所做的潜在修改。
+    -->
+    <cache/>
+    <!-- 练手resultMap -->
+    <resultMap id="TagChargePersonResultMap" type="com.example.entity.TagChargePerson">
+        <id column="tag_charge_id" jdbcType="BIGINT" property="id"/>
+        <result column="charge_id" jdbcType="VARCHAR" property="chargeId"/>
+        <result column="charge_name" jdbcType="VARCHAR" property="chargeName"/>
+        <result column="tag_id" jdbcType="BIGINT" property="tagId"/>
+    </resultMap>
+
+    <resultMap id="BaseResultMap" type="com.example.entity.TagBaseInfo">
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="available" jdbcType="INTEGER" property="available"/>
+        <result column="create_department" jdbcType="VARCHAR" property="createDepartment"/>
+        <result column="create_department_id" jdbcType="VARCHAR" property="createDepartmentId"/>
+        <result column="create_name" jdbcType="VARCHAR" property="createName"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="create_uid" jdbcType="VARCHAR" property="createUid"/>
+        <result column="data_init_date" jdbcType="TIMESTAMP" property="dataInitDate"/>
+        <result column="delete_time" jdbcType="TIMESTAMP" property="deleteTime"/>
+        <result column="delete_uid" jdbcType="VARCHAR" property="deleteUid"/>
+        <result column="first_id" jdbcType="BIGINT" property="firstId"/>
+        <result column="is_date_partition" jdbcType="INTEGER" property="isDatePartition"/>
+        <result column="is_multi_value" jdbcType="INTEGER" property="isMultiValue"/>
+        <result column="method_type" jdbcType="INTEGER" property="methodType"/>
+        <result column="offline_reason" jdbcType="VARCHAR" property="offlineReason"/>
+        <result column="offline_time" jdbcType="TIMESTAMP" property="offlineTime"/>
+        <result column="offline_uid" jdbcType="VARCHAR" property="offlineUid"/>
+        <result column="online_state" jdbcType="INTEGER" property="onlineState"/>
+        <result column="online_time" jdbcType="TIMESTAMP" property="onlineTime"/>
+        <result column="online_uid" jdbcType="VARCHAR" property="onlineUid"/>
+        <result column="precis_rate" jdbcType="REAL" property="precisRate"/>
+        <result column="prikey_type" jdbcType="INTEGER" property="prikeyType"/>
+        <result column="recall_rate" jdbcType="REAL" property="recallRate"/>
+        <result column="second_id" jdbcType="BIGINT" property="secondId"/>
+        <result column="tag_count" jdbcType="INTEGER" property="tagCount"/>
+        <result column="tag_en_name" jdbcType="VARCHAR" property="tagEnName"/>
+        <result column="tag_field_type" jdbcType="INTEGER" property="tagFieldType"/>
+        <result column="tag_name" jdbcType="VARCHAR" property="tagName"/>
+        <result column="tag_type" jdbcType="INTEGER" property="tagType"/>
+        <result column="update_cycle" jdbcType="INTEGER" property="updateCycle"/>
+        <result column="update_priority" jdbcType="INTEGER" property="updatePriority"/>
+        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
+        <result column="update_uid" jdbcType="VARCHAR" property="updateUid"/>
+        <result column="uri" jdbcType="VARCHAR" property="uri"/>
+        <result column="is_increment" jdbcType="INTEGER" property="isIncrement"/>
+        <result column="tag_value_is_enum" jdbcType="INTEGER" property="tagValueIsEnum"/>
+        <result column="end_time" jdbcType="TIMESTAMP" property="endTime"/>
+        <result column="tag_import_type" jdbcType="INTEGER" property="tagImportType"/>
+        <result column="security_level" jdbcType="INTEGER" property="securityLevel"/>
+        <result column="delet_reason" jdbcType="VARCHAR" property="deletReason"/>
+        <result column="tag_weight" jdbcType="INTEGER" property="tagWeight"/>
+        <result column="test_tag" jdbcType="INTEGER" property="testTag"/>
+        <result column="external_task_id" jdbcType="INTEGER" property="externalTaskId"/>
+        <result column="alarm" jdbcType="VARCHAR" property="alarm"/>
+        <result column="brand" jdbcType="VARCHAR" property="brand"/>
+        <result column="file_info_id" jdbcType="INTEGER" property="fileInfoId"/>
+        <result column="primary_key_type" jdbcType="INTEGER" property="primaryKeyType"/>
+        <result column="update_cycle_time" jdbcType="INTEGER" property="updateCycleTime"/>
+        <result column="business_requirements" jdbcType="VARCHAR" property="businessRequirements"/>
+        <result column="tag_en_name_text" jdbcType="VARCHAR" property="tagEnNameText"/>
+        <result column="review_fail_reason" jdbcType="VARCHAR" property="reviewFailReason"/>
+        <result column="review_state" jdbcType="INTEGER" property="reviewState"/>
+        <result column="expected_performance_time" jdbcType="VARCHAR" property="expectedPerformanceTime"/>
+        <result column="tag_desc" jdbcType="LONGVARCHAR" property="tagDesc"/>
+
+        <!--  关联查询 -->
+        <!--    <association property="tagChargePerson" javaType="com.example.entity.TagChargePerson" resultMap="TagChargePersonResultMap"/>-->
+        <collection property="tagChargePerson" ofType="com.example.entity.TagChargePerson"
+                    resultMap="TagChargePersonResultMap"/>
+    </resultMap>
+
+
+    <!--  &lt;!&ndash; 非常复杂的结果映射 &ndash;&gt;-->
+    <!--  <resultMap id="detailedBlogResultMap" type="com.example.entity.TagBaseInfo">-->
+    <!--    <constructor>-->
+    <!--      <idArg column="blog_id" javaType="int"/>-->
+    <!--    </constructor>-->
+    <!--    <result property="title" column="blog_title"/>-->
+    <!--    <association property="author" javaType="Author">-->
+    <!--      <id property="id" column="author_id"/>-->
+    <!--      <result property="username" column="author_username"/>-->
+    <!--      <result property="password" column="author_password"/>-->
+    <!--      <result property="email" column="author_email"/>-->
+    <!--      <result property="bio" column="author_bio"/>-->
+    <!--      <result property="favouriteSection" column="author_favourite_section"/>-->
+    <!--    </association>-->
+    <!--    <collection property="posts" ofType="Post">-->
+    <!--      <id property="id" column="post_id"/>-->
+    <!--      <result property="subject" column="post_subject"/>-->
+    <!--      <association property="author" javaType="Author"/>-->
+    <!--      <collection property="comments" ofType="Comment">-->
+    <!--        <id property="id" column="comment_id"/>-->
+    <!--      </collection>-->
+    <!--      <collection property="tags" ofType="Tag" >-->
+    <!--        <id property="id" column="tag_id"/>-->
+    <!--      </collection>-->
+    <!--      <discriminator javaType="int" column="draft">-->
+    <!--        <case value="1" resultType="DraftPost"/>-->
+    <!--      </discriminator>-->
+    <!--    </collection>-->
+    <!--  </resultMap>-->
+
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+        delete from tag_base_info
+        where id = #{id,jdbcType=BIGINT}
+    </delete>
+    <insert id="insert" parameterType="com.example.entity.TagBaseInfo">
+        <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+        insert into tag_base_info (available, create_department, create_department_id,
+        create_name, create_time, create_uid,
+        data_init_date, delete_time, delete_uid,
+        first_id, is_date_partition, is_multi_value,
+        method_type, offline_reason, offline_time,
+        offline_uid, online_state, online_time,
+        online_uid, precis_rate, prikey_type,
+        recall_rate, second_id, tag_count,
+        tag_en_name, tag_field_type, tag_name,
+        tag_type, update_cycle, update_priority,
+        update_time, update_uid, uri,
+        is_increment, tag_value_is_enum, end_time,
+        tag_import_type, security_level, delet_reason,
+        tag_weight, test_tag, external_task_id,
+        alarm, brand, file_info_id,
+        primary_key_type, update_cycle_time, business_requirements,
+        tag_en_name_text, review_fail_reason, review_state,
+        expected_performance_time, tag_desc)
+        values (#{available,jdbcType=INTEGER}, #{createDepartment,jdbcType=VARCHAR},
+        #{createDepartmentId,jdbcType=VARCHAR},
+        #{createName,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{createUid,jdbcType=VARCHAR},
+        #{dataInitDate,jdbcType=TIMESTAMP}, #{deleteTime,jdbcType=TIMESTAMP}, #{deleteUid,jdbcType=VARCHAR},
+        #{firstId,jdbcType=BIGINT}, #{isDatePartition,jdbcType=INTEGER}, #{isMultiValue,jdbcType=INTEGER},
+        #{methodType,jdbcType=INTEGER}, #{offlineReason,jdbcType=VARCHAR}, #{offlineTime,jdbcType=TIMESTAMP},
+        #{offlineUid,jdbcType=VARCHAR}, #{onlineState,jdbcType=INTEGER}, #{onlineTime,jdbcType=TIMESTAMP},
+        #{onlineUid,jdbcType=VARCHAR}, #{precisRate,jdbcType=REAL}, #{prikeyType,jdbcType=INTEGER},
+        #{recallRate,jdbcType=REAL}, #{secondId,jdbcType=BIGINT}, #{tagCount,jdbcType=INTEGER},
+        #{tagEnName,jdbcType=VARCHAR}, #{tagFieldType,jdbcType=INTEGER}, #{tagName,jdbcType=VARCHAR},
+        #{tagType,jdbcType=INTEGER}, #{updateCycle,jdbcType=INTEGER}, #{updatePriority,jdbcType=INTEGER},
+        #{updateTime,jdbcType=TIMESTAMP}, #{updateUid,jdbcType=VARCHAR}, #{uri,jdbcType=VARCHAR},
+        #{isIncrement,jdbcType=INTEGER}, #{tagValueIsEnum,jdbcType=INTEGER}, #{endTime,jdbcType=TIMESTAMP},
+        #{tagImportType,jdbcType=INTEGER}, #{securityLevel,jdbcType=INTEGER}, #{deletReason,jdbcType=VARCHAR},
+        #{tagWeight,jdbcType=INTEGER}, #{testTag,jdbcType=INTEGER}, #{externalTaskId,jdbcType=INTEGER},
+        #{alarm,jdbcType=VARCHAR}, #{brand,jdbcType=VARCHAR}, #{fileInfoId,jdbcType=INTEGER},
+        #{primaryKeyType,jdbcType=INTEGER}, #{updateCycleTime,jdbcType=INTEGER},
+        #{businessRequirements,jdbcType=VARCHAR},
+        #{tagEnNameText,jdbcType=VARCHAR}, #{reviewFailReason,jdbcType=VARCHAR}, #{reviewState,jdbcType=INTEGER},
+        #{expectedPerformanceTime,jdbcType=VARCHAR}, #{tagDesc,jdbcType=LONGVARCHAR})
+    </insert>
+    <update id="updateByPrimaryKey" parameterType="com.example.entity.TagBaseInfo">
+        update tag_base_info
+        set available = #{available,jdbcType=INTEGER},
+        create_department = #{createDepartment,jdbcType=VARCHAR},
+        create_department_id = #{createDepartmentId,jdbcType=VARCHAR},
+        create_name = #{createName,jdbcType=VARCHAR},
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+        create_uid = #{createUid,jdbcType=VARCHAR},
+        data_init_date = #{dataInitDate,jdbcType=TIMESTAMP},
+        delete_time = #{deleteTime,jdbcType=TIMESTAMP},
+        delete_uid = #{deleteUid,jdbcType=VARCHAR},
+        first_id = #{firstId,jdbcType=BIGINT},
+        is_date_partition = #{isDatePartition,jdbcType=INTEGER},
+        is_multi_value = #{isMultiValue,jdbcType=INTEGER},
+        method_type = #{methodType,jdbcType=INTEGER},
+        offline_reason = #{offlineReason,jdbcType=VARCHAR},
+        offline_time = #{offlineTime,jdbcType=TIMESTAMP},
+        offline_uid = #{offlineUid,jdbcType=VARCHAR},
+        online_state = #{onlineState,jdbcType=INTEGER},
+        online_time = #{onlineTime,jdbcType=TIMESTAMP},
+        online_uid = #{onlineUid,jdbcType=VARCHAR},
+        precis_rate = #{precisRate,jdbcType=REAL},
+        prikey_type = #{prikeyType,jdbcType=INTEGER},
+        recall_rate = #{recallRate,jdbcType=REAL},
+        second_id = #{secondId,jdbcType=BIGINT},
+        tag_count = #{tagCount,jdbcType=INTEGER},
+        tag_en_name = #{tagEnName,jdbcType=VARCHAR},
+        tag_field_type = #{tagFieldType,jdbcType=INTEGER},
+        tag_name = #{tagName,jdbcType=VARCHAR},
+        tag_type = #{tagType,jdbcType=INTEGER},
+        update_cycle = #{updateCycle,jdbcType=INTEGER},
+        update_priority = #{updatePriority,jdbcType=INTEGER},
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+        update_uid = #{updateUid,jdbcType=VARCHAR},
+        uri = #{uri,jdbcType=VARCHAR},
+        is_increment = #{isIncrement,jdbcType=INTEGER},
+        tag_value_is_enum = #{tagValueIsEnum,jdbcType=INTEGER},
+        end_time = #{endTime,jdbcType=TIMESTAMP},
+        tag_import_type = #{tagImportType,jdbcType=INTEGER},
+        security_level = #{securityLevel,jdbcType=INTEGER},
+        delet_reason = #{deletReason,jdbcType=VARCHAR},
+        tag_weight = #{tagWeight,jdbcType=INTEGER},
+        test_tag = #{testTag,jdbcType=INTEGER},
+        external_task_id = #{externalTaskId,jdbcType=INTEGER},
+        alarm = #{alarm,jdbcType=VARCHAR},
+        brand = #{brand,jdbcType=VARCHAR},
+        file_info_id = #{fileInfoId,jdbcType=INTEGER},
+        primary_key_type = #{primaryKeyType,jdbcType=INTEGER},
+        update_cycle_time = #{updateCycleTime,jdbcType=INTEGER},
+        business_requirements = #{businessRequirements,jdbcType=VARCHAR},
+        tag_en_name_text = #{tagEnNameText,jdbcType=VARCHAR},
+        review_fail_reason = #{reviewFailReason,jdbcType=VARCHAR},
+        review_state = #{reviewState,jdbcType=INTEGER},
+        expected_performance_time = #{expectedPerformanceTime,jdbcType=VARCHAR},
+        tag_desc = #{tagDesc,jdbcType=LONGVARCHAR}
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap" useCache="true"
+            timeout="10" fetchSize="256">
+        select id, available, create_department, create_department_id, create_name, create_time,
+        create_uid, data_init_date, delete_time, delete_uid, first_id, is_date_partition,
+        is_multi_value, method_type, offline_reason, offline_time, offline_uid, online_state,
+        online_time, online_uid, precis_rate, prikey_type, recall_rate, second_id, tag_count,
+        tag_en_name, tag_field_type, tag_name, tag_type, update_cycle, update_priority, update_time,
+        update_uid, uri, is_increment, tag_value_is_enum, end_time, tag_import_type, security_level,
+        delet_reason, tag_weight, test_tag, external_task_id, alarm, brand, file_info_id,
+        primary_key_type, update_cycle_time, business_requirements, tag_en_name_text, review_fail_reason,
+        review_state, expected_performance_time, tag_desc
+        from tag_base_info
+        where id = #{id,jdbcType=BIGINT}
+    </select>
+    <select id="selectAll" resultMap="BaseResultMap">
+        select id, available, create_department, create_department_id, create_name, create_time,
+        create_uid, data_init_date, delete_time, delete_uid, first_id, is_date_partition,
+        is_multi_value, method_type, offline_reason, offline_time, offline_uid, online_state,
+        online_time, online_uid, precis_rate, prikey_type, recall_rate, second_id, tag_count,
+        tag_en_name, tag_field_type, tag_name, tag_type, update_cycle, update_priority, update_time,
+        update_uid, uri, is_increment, tag_value_is_enum, end_time, tag_import_type, security_level,
+        delet_reason, tag_weight, test_tag, external_task_id, alarm, brand, file_info_id,
+        primary_key_type, update_cycle_time, business_requirements, tag_en_name_text, review_fail_reason,
+        review_state, expected_performance_time, tag_desc
+        from tag_base_info
+    </select>
+
+<!--    动态SQL  标签ID ，创建人或者责任人记录id-->
+    <select id="selectByCondition" resultMap="BaseResultMap">
+        select *,ch.id as tag_charge_id from tag_base_info tag inner join tag_charge_person ch on ch.tag_id = tag.id
+        <where>
+            <if test="tagId != null">
+                tag.id = #{tagId}
+            </if>
+            <if test="createName != null ">
+                and tag.create_name like concat(#{createName},'%')
+            </if>
+            <if test="chargeId != null">
+                and ch.id = #{createName}
+            </if>
+        </where>
+    </select>
+
+
+    <select id="selectBy" resultMap="BaseResultMap">
+        select *,ch.id as tag_charge_id from tag_base_info tag inner join tag_charge_person ch on ch.tag_id = tag.id
+        where tag.id = 1424
+    </select>
 </mapper>
+
+        <!--动态sql-->
+
+
+

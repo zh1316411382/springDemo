@@ -1,10 +1,13 @@
 package com.example.entity;
 
+import lombok.Builder;
+
 /**
  * @Author:0xOO
  * @Date: 2018/9/26 0026
  * @Time: 14:39
  */
+@Builder
 public class User {
     private Integer id;
     private String userName;
