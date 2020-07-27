@@ -8,12 +8,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
+
+
+/**
+ * @author morris
+ */
 @RestController
 @RequestMapping("/tag")
 public class TagBaseController {
-    @Autowired private TagBaseInfoMapper tagBaseInfoMapper;
+    @Autowired
+    private TagBaseInfoMapper tagBaseInfoMapper;
+
     @GetMapping("/findById")
     public Object findById(@RequestParam(value = "id") Long id){
+        ArrayList<Object> objects = new ArrayList<>();
         TagBaseInfo tagBaseInfo = tagBaseInfoMapper.selectByPrimaryKey(id);
         System.out.println(tagBaseInfo);
         return tagBaseInfo;

@@ -18,6 +18,7 @@ public class TagServiceImpl implements TagService {
     @Autowired private TagBaseInfoMapper tagBaseInfoMapper;
 
 
+
     @Override
     public PageBean getTagBaseInfoPage() {
         return null;
